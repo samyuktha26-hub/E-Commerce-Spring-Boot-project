@@ -1,0 +1,634 @@
+@charset "UTF-8";
+/* =========================================
+   1. GLOBAL RESETS & EDITORIAL TYPOGRAPHY
+   ========================================= */
+/* Importing Playfair Display for elegant headings, and Poppins for clean body text */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap');
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+body { 
+    background-color: #f3eee6; /* The warm, editorial beige from your image */
+    color: #1a1a1a; 
+    line-height: 1.7; 
+    padding-bottom: 80px; 
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: all 0.3s ease; 
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* Elegant serif headings */
+    font-weight: 600;
+    color: #222;
+    letter-spacing: -0.5px;
+}
+
+/* Add a splash of that terracotta/orange color to main headings */
+h1 { color: #c45b34; font-size: 2.5rem; }
+
+/* =========================================
+   2. THE STRUCTURAL NAV BAR
+   ========================================= */
+.top-nav { 
+    text-align: right; 
+    max-width: 1200px; 
+    margin: 0 auto 40px auto; 
+    padding: 25px 30px; 
+    
+    /* Flat design, matching the background but separated by a thin structural line */
+    background: transparent; 
+    border-bottom: 1px solid #dfd6c8;
+    border-radius: 0;
+    box-shadow: none; 
+}
+
+.top-nav a { 
+    margin-left: 35px; 
+    font-weight: 400; 
+    font-size: 14px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.top-nav a:hover { color: #c45b34; } /* Terracotta hover */
+.top-nav a.logout-btn { color: #1a1a1a; font-weight: 500; border-bottom: 1px solid #1a1a1a;}
+.top-nav a.logout-btn:hover { color: #c45b34; border-color: #c45b34;}
+
+/* =========================================
+   3. FLAT EDITORIAL CONTAINERS
+   ========================================= */
+/* Removing shadows, using thin lines to mimic the magazine grid look */
+.card-container, .form-container, .cart-container, .receipt-container, .card, .product-container { 
+    background: transparent; 
+    border-radius: 0; 
+    padding: 40px; 
+    box-shadow: none; 
+    border: 1px solid #dfd6c8; /* Thin elegant structural line */
+    margin: 0 auto;
+}
+
+/* Product Grid Layout */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0; /* Remove gap to create a continuous grid */
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #dfd6c8;
+}
+
+.product-card {
+    background: transparent; 
+    border-radius: 0; 
+    padding: 40px 20px;
+    box-shadow: none; 
+    text-align: center; 
+    border: 1px solid #dfd6c8; /* Grid lines */
+    transition: background-color 0.3s ease;
+}
+
+.product-card:hover { 
+    background-color: #f9f6f0; /* Slight highlight on hover instead of lifting */
+}
+
+.product-card h3 { 
+    font-size: 22px; 
+    margin-bottom: 10px; 
+    color: #1a1a1a; 
+}
+
+/* =========================================
+   4. PILL-SHAPED SOFT INPUTS (Like the image)
+   ========================================= */
+.form-group { margin-bottom: 20px; text-align: left; }
+
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    color: #666; 
+    font-size: 12px; 
+    font-weight: 500; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Matching the soft, slightly darker beige pill inputs from your image */
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], select, textarea { 
+    width: 100%; 
+    padding: 15px 25px; 
+    border: none; 
+    border-radius: 50px; /* Fully rounded pill shape */
+    font-size: 14px; 
+    background-color: #e5dfd4; /* Darker beige inner fill */
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus { 
+    outline: none; 
+    background-color: #dcd4c6; 
+}
+
+/* Specifically styling select dropdowns to match the pill aesthetic */
+select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+
+/* =========================================
+   5. CONTRAST BUTTONS
+   ========================================= */
+.btn, .btn-primary, .btn-cart, .btn-submit, .btn-action, .btn-success, .btn-checkout, .btn-confirm { 
+    display: inline-block; 
+    padding: 15px 35px; 
+    border-radius: 50px; /* Pill shape */
+    font-weight: 400; 
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    border: 1px solid #1a1a1a; 
+    text-align: center; 
+    width: 100%;
+}
+
+/* Dark, sophisticated main buttons */
+.btn-primary, .btn-cart, .btn-submit, .btn-action { 
+    background: #1a1a1a; 
+    color: #fff; 
+}
+
+.btn-primary:hover, .btn-cart:hover, .btn-submit:hover, .btn-action:hover { 
+    background: transparent; 
+    color: #1a1a1a; 
+}
+
+/* Outlined buttons (Like the 'Login' button in your image) */
+.btn-outline {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+}
+
+.btn-outline:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* Success / Checkout Buttons */
+.btn-success, .btn-checkout, .btn-confirm { 
+    background: #c45b34; /* Terracotta accent color */
+    color: white; 
+    border-color: #c45b34;
+}
+
+.btn-success:hover, .btn-checkout:hover, .btn-confirm:hover { 
+    background: transparent; 
+    color: #c45b34; 
+}
+
+/* =========================================
+   6. EDITORIAL TABLES
+   ========================================= */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+}
+
+th, td { 
+    padding: 20px; 
+    text-align: left; 
+    border-bottom: 1px solid #dfd6c8; 
+}
+
+th { 
+    color: #888; 
+    font-weight: 500; 
+    text-transform: uppercase; 
+    font-size: 11px; 
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   7. UTILITIES
+   ========================================= */
+.status-badge { 
+    padding: 6px 15px; 
+    border-radius: 50px; 
+    font-size: 11px; 
+    font-weight: 500; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #e5dfd4; 
+    color: #1a1a1a; 
+    border: 1px solid #dfd6c8;
+}
+/* =========================================
+   8. HERO SECTION & IMAGES
+   ========================================= */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px 100px 20px;
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    border-bottom: 1px solid #dfd6c8;
+}
+
+.hero-section h1 {
+    font-size: 4.5rem; /* Massive editorial heading */
+    line-height: 1.1;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* Sophisticated section titles for Products/Home */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #1a1a1a;
+}
+
+/* Preparing for real images */
+.product-img-wrapper {
+    width: 100%;
+    height: 350px; /* Uniform height for all product images */
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: #e5dfd4; /* Beige placeholder background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the box without squishing! */
+    transition: transform 0.5s ease;
+}
+
+/* High-end zoom effect when hovering over a product */
+.product-card:hover .product-img-wrapper img {
+    transform: scale(1.05);
+}
+/* =========================================
+   FILTER NAVIGATION
+   ========================================= */
+.filter-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 1px solid #dfd6c8;
+    background: transparent;
+    color: #555;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+/* =========================================
+   9. CART LAYOUT
+   ========================================= */
+.cart-item-row {
+    display: flex;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #dfd6c8;
+    gap: 25px;
+}
+
+.cart-img-thumb {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    background-color: #e5dfd4;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cart-summary-box {
+    background: #e5dfd4; /* Darker beige for contrast */
+    padding: 40px;
+    margin-top: 40px;
+    text-align: right;
+    border: 1px solid #dfd6c8;
+}
+/* =========================================
+   11. PRODUCT DETAILS PAGE
+   ========================================= */
+/* 1. Tighten the main box so it stops floating in empty space */
+.product-container {
+    display: flex;
+    max-width: 900px; /* Shrunk from 1100px to bring elements together */
+    margin: 60px auto; /* Slightly reduced the top space */
+    gap: 40px; /* Reduced the massive gap between the image and the text */
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+/* 2. Bump up the title size so it feels more substantial */
+.product-title {
+    font-size: 2.8rem; /* Increased from 2.5rem */
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+/* 3. Make the price pop a bit more */
+.product-price {
+    font-size: 1.8rem; /* Increased from 1.5rem */
+    color: #c45b34; 
+    margin-bottom: 25px;
+    font-weight: 500; /* Added a little weight to the font */
+}
+.product-image {
+    flex: 1; /* Takes up 50% of the screen */
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.product-info {
+    flex: 1; /* Takes up the other 50% */
+    padding-top: 20px;
+}
+
+
+
+.product-desc {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.size-select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #dfd6c8;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.btn-cart {
+    width: 100%;
+    padding: 15px;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-cart:hover {
+    background: #c45b34;
+}
+
+.back-link {
+    display: inline-block;
+    color: #888;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+/* =========================================
+   10. ELEGANT HOMEPAGE UPGRADES
+   ========================================= */
+.editorial-hero {
+    position: relative;
+    height: 70vh; /* Takes up 70% of the screen height */
+    min-height: 500px;
+    background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.editorial-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Elegant dark overlay so text is readable */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #f3eee6;
+}
+
+/* Category Spotlight Grid */
+.spotlight-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.spotlight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.spotlight-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.spotlight-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.spotlight-card:hover img {
+    transform: scale(1.05);
+}
+
+.spotlight-label {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: #1a1a1a;
+    padding: 12px 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/* =========================================
+   12. LUXURY HOMEPAGE SECTIONS
+   ========================================= */
+/* The Brand Ethos Statement */
+.brand-ethos {
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.brand-ethos h2 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.brand-ethos p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Minimalist Newsletter Signup */
+.newsletter-section {
+    background-color: #f3eee6; /* Soft editorial beige */
+    padding: 80px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.newsletter-section h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.newsletter-section p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid #dfd6c8;
+    background: transparent;
+    font-family: inherit;
+}
+
+.newsletter-form button {
+    padding: 15px 30px;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #c45b34;
+}
+
+/* The Professional Footer */
+.site-footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 20px 30px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-links a {
+    color: #f3eee6;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.site-footer p {
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 1px;
+}

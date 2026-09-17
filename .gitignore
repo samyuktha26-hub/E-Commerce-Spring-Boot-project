@@ -1,0 +1,28 @@
+# Java Compiled class files
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+*.war
+*.ear
+*.nar
+
+# Eclipse Metadata & Local Settings
+.metadata/
+.classpath
+.project
+.settings/
+*.pref
+
+# Build Tool Output
+bin/
+target/
+build/
+.gradle/
+
+# Log & Temp Files
+*.log
+*.tmp
